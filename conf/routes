@@ -1,0 +1,9 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Controller for connect-four
+GET     /                           controllers.Controller.test
+GET     /connectfour                controllers.Controller.connectfour
+GET     /turn/:id                       controllers.Controller.turn(id: Int)
+
