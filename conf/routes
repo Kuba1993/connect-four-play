@@ -3,7 +3,6 @@
 # ~~~~
 
 # Controller for connect-four
-GET     /                           controllers.Controller.test
-GET     /connectfour                controllers.Controller.connectfour
-GET     /turn/:id                       controllers.Controller.turn(id: Int)
+GET     /                       controllers.Controller.connectfour
+GET     /:id                   controllers.Controller.turn(id: Int)
 
