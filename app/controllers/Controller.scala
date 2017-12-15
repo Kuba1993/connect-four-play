@@ -26,7 +26,6 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
   }
 
   def turn (id: Int) = Action {
-
     localGridController.checkAddCell(id, cellType)
     if(cellType == CellType.FIRST){
       cellType = CellType.SECOND

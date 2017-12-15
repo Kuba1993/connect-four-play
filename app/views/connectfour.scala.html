@@ -1,16 +1,29 @@
 @(controller: de.htwg.se.connectfour.mvc.controller.GridController)
 <html>
-<body>
-
-
-
-
-    <div style="overflow: auto;">
-        <div style="width: 960px; color: navy; background-color: pink; border: 2px solid blue; padding: 5px; text-align: center;">
-                @controller.grid
+<div class="container-fluid text-center">
+    <div>
+        <div class="col-sm-8 text-middle">
+            <div id="divgame" class="table-responsive">
+                <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" border = "1px solid black" >
+                    @for(i <- 0 until controller.rows){
+                        <tr>
+                            @for(j <- 0 until controller.columns){
+                                @if(controller.cell(j,i).toString() == " "){
+                                    <td>&nbsp &nbsp</td>
+                                }
+                                @if(controller.cell(j,i).toString() == "O"){
+                                    <td>O</td>
+                                }
+                                @if(controller.cell(j,i).toString() == "X"){
+                                    <td>X</td>
+                                }
+                            }
+                        </tr>
+                    }
+                </table>
             </div>
+        </div>
     </div>
+</div>
 
-
-</body>
 <html/>
