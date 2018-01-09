@@ -3,6 +3,7 @@
 # ~~~~
 
 # Controller for connect-four
-GET     /                       controllers.Controller.connectfour
+GET     /assets/*file          controllers.Assets.at(path="/public", file)
+GET     /                      controllers.Controller.connectfour
 GET     /:id                   controllers.Controller.turn(id: Int)
 

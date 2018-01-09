@@ -9,13 +9,19 @@
                         <tr>
                             @for(j <- 0 until controller.columns){
                                 @if(controller.cell(j,i).toString() == " "){
-                                    <td>&nbsp &nbsp</td>
+                                    <td>
+                                        <p><img  src='@routes.Assets.at("images/empty.png")' /></p>
+                                    </td>
                                 }
                                 @if(controller.cell(j,i).toString() == "O"){
-                                    <td>O</td>
+                                    <td>
+                                        <p><img  src='@routes.Assets.at("images/red.png")' /></p>
+                                    </td>
                                 }
                                 @if(controller.cell(j,i).toString() == "X"){
-                                    <td>X</td>
+                                    <td>
+                                        <p><img  src='@routes.Assets.at("images/yellow.png")' /></p>
+                                    </td>
                                 }
                             }
                         </tr>
