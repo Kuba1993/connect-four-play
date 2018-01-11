@@ -1,35 +1,44 @@
 @(controller: de.htwg.se.connectfour.mvc.controller.GridController)
-<html>
 <div class="container-fluid text-center">
+    <div id="dropdown">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="/conncetfour/new">new game</a></li>
+                <li><a href="/connectfour/undo">undo</a></li>
+                <li><a href="/connectfour/redo">redo</a></li>
+            </ul>
+        </div>
+        <ul id="dropdown">
+        </ul>
+    </div>
     <div>
         <div class="col-sm-8 text-middle">
             <div id="divgame" class="table-responsive">
                 <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" border = "1px solid black" >
                     @for(i <- 0 until controller.rows){
-                        <tr>
-                            @for(j <- 0 until controller.columns){
-                                @if(controller.cell(j,i).toString() == " "){
-                                    <td>
-                                        <p><img  src='@routes.Assets.at("images/empty.png")' /></p>
-                                    </td>
-                                }
-                                @if(controller.cell(j,i).toString() == "O"){
-                                    <td>
-                                        <p><img  src='@routes.Assets.at("images/red.png")' /></p>
-                                    </td>
-                                }
-                                @if(controller.cell(j,i).toString() == "X"){
-                                    <td>
-                                        <p><img  src='@routes.Assets.at("images/yellow.png")' /></p>
-                                    </td>
-                                }
-                            }
-                        </tr>
+                    <tr>
+                        @for(j <- 0 until controller.columns){
+                        @if(controller.cell(j,i).toString() == " "){
+                        <td>
+                            <p><img  src='@routes.Assets.at("images/empty.png")' /></p>
+                        </td>
+                        }
+                        @if(controller.cell(j,i).toString() == "O"){
+                        <td>
+                            <p><img  src='@routes.Assets.at("images/red.png")' /></p>
+                        </td>
+                        }
+                        @if(controller.cell(j,i).toString() == "X"){
+                        <td>
+                            <p><img  src='@routes.Assets.at("images/yellow.png")' /></p>
+                        </td>
+                        }
+                        }
+                    </tr>
                     }
                 </table>
             </div>
         </div>
     </div>
 </div>
-
-<html/>

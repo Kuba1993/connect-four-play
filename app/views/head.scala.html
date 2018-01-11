@@ -1,0 +1,35 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+            <!-- Bootstrap CSS -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Stylesheet -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/style.css")">
+
+
+            <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="@routes.Assets.versioned("javascripts/connectfour.js")"></script>
+
+
+
+        <title>Connect-Four</title>
+        <table id="linker">
+            <tr>
+                <th><a href="/connectfour">Zum Spiel</a></th>
+                <th><a href="/help">Hilfe</a></th>
+            </tr>
+        </table>
+
+    </head>
+    <body>
+        <div>@content</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -20,6 +20,9 @@ class Controller @Inject()(cc: ControllerComponents) extends AbstractController(
     Ok("test")
   }
 
+  def index = Action {
+    Ok(views.html.index("Index"))
+  }
 
   def connectfour = Action {
     Ok(views.html.connectfour(localGridController))
