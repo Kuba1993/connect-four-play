@@ -1,4 +1,7 @@
 @(controller: de.htwg.se.connectfour.mvc.controller.GridController)
+@main(""){
+
+
 <div class="container-fluid text-center">
     <div id="dropdown">
         <div class="dropdown">
@@ -15,9 +18,15 @@
     <div>
         <div class="col-sm-8 text-middle">
             <div id="divgame" class="table-responsive">
-                <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" border = "1px solid black" >
+                <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" >
+                    @for(j <- 0 until controller.columns){
+                    <td>
+                        <p><img id=@j src='@routes.Assets.at("images/button.jpg")'/></p>
+                    </td>
+                    }
                     @for(i <- 0 until controller.rows){
                     <tr>
+
                         @for(j <- 0 until controller.columns){
                         @if(controller.cell(j,i).toString() == " "){
                         <td>
@@ -42,3 +51,4 @@
         </div>
     </div>
 </div>
+}

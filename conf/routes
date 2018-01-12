@@ -3,12 +3,12 @@
 # ~~~~
 
 # Controller for connect-four
-GET     /                      controllers.Controller.index
-GET     /assets/*file          controllers.Assets.at(path="/public", file)
-GET     /connectfour           controllers.Controller.connectfour
-GET     /connectfour/:id       controllers.Controller.turn(id: Int)
-GET     /test                  controllers.Controller.test
+GET     /                      controllers.Application.index
+GET     /connectfour           controllers.Application.connectfour()
+GET     /connectfour/:id       controllers.Application.turn(id: Int)
+GET     /test                  controllers.Application.test
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file          controllers.Assets.at(path="/public", file)
+GET		/socket				   controllers.Application.socket
 
