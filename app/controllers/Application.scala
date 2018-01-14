@@ -35,6 +35,14 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
     Ok(views.html.index("Index"))
   }
 
+  def news = Action {
+    Ok(views.html.news(""))
+  }
+
+  def help = Action  {
+    Ok(views.html.help(""));
+  }
+
   def connectfour = Action {
     Ok(views.html.connectfour.render(localGridController))
   }

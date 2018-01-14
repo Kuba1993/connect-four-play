@@ -20,17 +20,17 @@
                         @for(j <- 0 until controller.columns){
                         @if(controller.cell(j,i).toString() == " "){
                         <td>
-                            <p><img  src='@routes.Assets.at("images/empty.png")' /></p>
+                            <p><img  src='@routes.Assets.at("images/clear.png")' /></p>
                         </td>
                         }
                         @if(controller.cell(j,i).toString() == "O"){
                         <td>
-                            <p><img  src='@routes.Assets.at("images/red.png")' /></p>
+                            <p><img  src='@routes.Assets.at("images/redwood.png")' /></p>
                         </td>
                         }
                         @if(controller.cell(j,i).toString() == "X"){
                         <td>
-                            <p><img  src='@routes.Assets.at("images/yellow.png")' /></p>
+                            <p><img  src='@routes.Assets.at("images/blackwood.png")' /></p>
                         </td>
                         }
                         }
