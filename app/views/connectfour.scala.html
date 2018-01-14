@@ -11,7 +11,7 @@
                 <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" >
                     @for(j <- 0 until controller.columns){
                     <td>
-                        <p><img id=@j src='@routes.Assets.at("images/button.jpg")'/></p>
+                        <p><img id="@j" src='@routes.Assets.at("images/button.jpg")' /></p>
                     </td>
                     }
                     @for(i <- 0 until controller.rows){
