@@ -5,7 +5,7 @@ body {
     background-position: 50% 0px;
 }
 
-#linker {
+#MENU {
     margin-left: auto;
     margin-right: auto;
     width: 95%;
@@ -14,6 +14,14 @@ body {
     background-image: url("../images/background1.jpg");
     background-repeat: no-repeat;
     background-position: 50%;
+}
+
+#NEWSFEED {
+    width: auto;
+    height: 800px;
+    position: center;
+    padding-top: 20px;
+    overflow-y: auto;
 }
 
 #BOTTOM {
@@ -35,7 +43,7 @@ body {
     color: white;
 }
 
-#linker th a {
+#MENU th a {
     text-decoration: none;
     font-weight: bold;
     display: block;
@@ -45,7 +53,7 @@ body {
     color: white;
     font-family: Arial;
 }
-#linker th a:hover {
+#MENU th a:hover {
     display: block;
     border: 1px solid #000;
     background-color: gray;
@@ -65,15 +73,6 @@ body {
 }
 .fieldbutton.black {
     background-color: black;
-}
-
-#htwglogo {
-    background-color: #FFFFFF;
-}
-
-#htwg {
-    width: 100%;
-    height: auto;
 }
 
 #HTWGLOGO {
