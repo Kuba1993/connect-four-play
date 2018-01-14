@@ -1,22 +1,12 @@
 @(controller: de.htwg.se.connectfour.mvc.controller.GridController)
-@main(""){
+@head(""){
 
 
 <div class="container-fluid text-center">
-    <div id="dropdown">
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu<span class="caret"></span></button>
-            <ul class="dropdown-menu">
-                <li><a href="/conncetfour/new">new game</a></li>
-                <li><a href="/connectfour/undo">undo</a></li>
-                <li><a href="/connectfour/redo">redo</a></li>
-            </ul>
-        </div>
-        <ul id="dropdown">
-        </ul>
-    </div>
     <div>
         <div class="col-sm-8 text-middle">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
             <div id="divgame" class="table-responsive">
                 <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" >
                     @for(j <- 0 until controller.columns){

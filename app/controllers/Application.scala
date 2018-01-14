@@ -32,7 +32,7 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   }
 
   def index = Action {
-    Ok(views.html.index.render("Index"))
+    Ok(views.html.index("Index"))
   }
 
   def connectfour = Action {
