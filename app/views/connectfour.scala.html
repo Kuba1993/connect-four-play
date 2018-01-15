@@ -2,15 +2,14 @@
 @head(""){
 
 
-<div class="container-fluid text-center">
+<div>
     <div>
-        <div class="col-sm-8 text-middle">
+        <div >
             <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <div id="divgame" class="table-responsive">
-                <table id="gamefield" class=table align="center" cellspacing="0" cellpadding="0" >
+            <div >
+                <table align="center" style="cellspacing: 0px; cellpadding: 0px">
                     @for(j <- 0 until controller.columns){
-                    <td>
+                    <td style="width:100px; height:100px">
                         <p><img id="@j" src='@routes.Assets.at("images/button.jpg")' /></p>
                     </td>
                     }
@@ -19,17 +18,17 @@
 
                         @for(j <- 0 until controller.columns){
                         @if(controller.cell(j,i).toString() == " "){
-                        <td>
+                        <td style="width:100px; height:100px">
                             <p><img  src='@routes.Assets.at("images/clear.png")' /></p>
                         </td>
                         }
                         @if(controller.cell(j,i).toString() == "O"){
-                        <td>
+                        <td style="width:100px; height:100px">
                             <p><img  src='@routes.Assets.at("images/redwood.png")' /></p>
                         </td>
                         }
                         @if(controller.cell(j,i).toString() == "X"){
-                        <td>
+                        <td style="width:100px; height:100px">
                             <p><img  src='@routes.Assets.at("images/blackwood.png")' /></p>
                         </td>
                         }
