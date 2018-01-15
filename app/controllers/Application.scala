@@ -2,10 +2,10 @@ package controllers
 
 import javax.inject._
 
-import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Flow
-import de.htwg.se.connectfour.mvc.controller.GridController
+import de.htwg.se.connectfour.mvc.controller._
 import de.htwg.se.connectfour.mvc.model.player.{RandomBotPlayer, RealPlayer}
 import de.htwg.se.connectfour.mvc.model.types.CellType
 import de.htwg.se.connectfour.mvc.view.GamingPlayers
@@ -14,6 +14,8 @@ import play.api.libs.streams.ActorFlow
 import play.api.mvc._
 
 import scala.concurrent.Future
+import scala.swing.Dialog
+import scala.swing.event.ButtonClicked
 
 
 @Singleton
@@ -23,9 +25,18 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   val player2 = RandomBotPlayer(localGridController)
   val players = new GamingPlayers(player1, player2, localGridController)
   var cellType: CellType.Value = CellType.FIRST
+  var updatingMessage = "update"
 
   implicit val system = ActorSystem()
   implicit val materializer = ActorMaterializer()
+
+
+  localGridController.reactions += {
+    case _: PlayerWon => updatingMessage = "Player "+ players.previousPlayer.name+ " won"
+    case _: Draw => updatingMessage = "draw"
+    case _: FilledColumn => updatingMessage = "column is filled"
+    case _: InvalidMove => updatingMessage = "invalid move"
+  }
 
   def test = Action {
     Ok("test")
@@ -65,10 +76,26 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   }
   def socket: WebSocket = WebSocket.accept[String, String]{ request =>
     ActorFlow.actorRef{out =>
-      println("Connection established")
       WebSocketActorFactory.create(out)
     }
   }
+
+  class WebSocketActor(out: ActorRef) extends Actor {
+    def receive = {
+      case msg: String =>
+        if(msg.toInt >= 0 && msg.toInt <= 6){
+          players.applyTurn(msg.toInt)
+        }
+        out!updatingMessage
+        println(msg)
+        println(updatingMessage)
+        if(updatingMessage == "column is filled"){
+          updatingMessage = "update";
+        }
+    }
+
+  }
+
 
 
 }

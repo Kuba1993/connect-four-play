@@ -10,11 +10,20 @@ $(function(){
             message('Socket Status: '+socket.readyState+' (open)');
             }
         socket.onmessage = function(message){
-            console.log(message)
+            if (message.data == "update"){
+                console.log(message.data)
+                location.reload()
+            }
+            else{
+                location.reload()
+                alert(message.data);
+            }
+
         }
         socket.onerror = function(){
         }
         socket.onclose = function(){
+        socket.close()
         }
         function message(msg){
         			$('#wsLog').append('<p>' + msg +'</p>');
