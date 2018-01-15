@@ -21,8 +21,8 @@ import scala.swing.event.ButtonClicked
 @Singleton
 class Application @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   val localGridController = GridController(7, 6)
-  val player1 = RealPlayer("David")
-  val player2 = RandomBotPlayer(localGridController)
+  val player1 = RealPlayer("Player1")
+  val player2 = RealPlayer("Player2")
   val players = new GamingPlayers(player1, player2, localGridController)
   var cellType: CellType.Value = CellType.FIRST
   var updatingMessage = "update"
@@ -51,7 +51,7 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   }
 
   def help = Action  {
-    Ok(views.html.help(""));
+    Ok(views.html.help(""))
   }
 
   def connectfour = Action {
@@ -83,19 +83,25 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   class WebSocketActor(out: ActorRef) extends Actor {
     def receive = {
       case msg: String =>
-        if(msg.toInt >= 0 && msg.toInt <= 6){
+        if(msg == "newGame"){
+          startNewGame()
+        }
+        else if(msg.toInt >= 0 && msg.toInt <= 6){
           players.applyTurn(msg.toInt)
         }
         out!updatingMessage
         println(msg)
         println(updatingMessage)
         if(updatingMessage == "column is filled"){
-          updatingMessage = "update";
+          updatingMessage = "update"
         }
     }
 
   }
 
-
+  def startNewGame(): Unit = {
+    localGridController.createEmptyGrid(localGridController.columns, localGridController.rows)
+    updatingMessage = "update"
+  }
 
 }

@@ -11,12 +11,11 @@ $(function(){
             }
         socket.onmessage = function(message){
             if (message.data == "update"){
+                location.reload();
                 console.log(message.data)
-                location.reload()
             }
             else{
-                location.reload()
-                alert(message.data);
+                showDialog(message.data);
             }
 
         }
@@ -33,7 +32,17 @@ $(function(){
 
 });
 
-
+function showDialog(data) {
+    swal({
+        title: data,
+        closeOnClickOutside: false,
+        closeOnConfirm: false
+        }, function(isConfirm){
+            if (isConfirm) {
+               window.location.reload();
+           }
+        });
+}
 
 $(function(){
     addListeners();
@@ -68,8 +77,9 @@ $(function(){
              console.log("selected row 6");
              socket.send(6);
         })
-
-
+        document.getElementById("BUTTONNEWGAME").addEventListener("click", function(){
+            console.log("starting new game");
+            socket.send("newGame")});
 
     }
 });
