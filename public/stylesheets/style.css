@@ -17,6 +17,7 @@ body {
 }
 
 #BUTTON {
+    margin-left: 100px;
     border: 2px solid #000;
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.6);
@@ -25,7 +26,7 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 50px;
 }
 
 #NEWSFEED {
@@ -89,8 +90,8 @@ body {
 
 #HTWGLOGO {
     opacity: 0.5;
-    max-width:100%;
-    max-height:100%;
+    max-width:500px;
+    max-height:600px;
 }
 
 
@@ -157,30 +158,43 @@ li.dropdown {
     background-color: pink;
 }
 
-@media (min-width: 0px) {
-
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+    height: 500px;
 }
-@media (min-width: 800px) {
 
+#customers td, #customers th {
+    padding: 0px;
+    height: 100px;
+    width: 100px;
 }
-@media (min-width: 1024px) {
 
-}
-@media (min-width: 1176px) {
+#customers tr:nth-child(even){background-color: #f2f2f2;}
 
-}
-@media (min-width: 1280px) {
+#customers tr:hover {background-color: #ddd;}
 
+#customers th {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
 }
-@media (min-width: 1360px) {
 
+#EMPTYGRID {
+    background-image: url("../images/clear.png");
+    background-size: auto;
 }
-@media (min-width: 1440px) {
 
+#REDGRID {
+    background-image: url("../images/redwood.png");
+    background-size: auto;
 }
-@media (min-width: 1600px) {
 
+#BLACKGRID {
+    background-image: url("../images/blackwood.png");
+    background-size: auto;
 }
-@media (min-width: 1920px) {
 
-}
