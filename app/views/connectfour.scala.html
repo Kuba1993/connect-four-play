@@ -7,10 +7,10 @@
         <div >
             <p>&nbsp;</p>
             <div >
-                <table align="center" style="cellspacing: 0px; cellpadding: 0px">
+                <table align="center" id="customers">
                     @for(j <- 0 until controller.columns){
-                    <td style="width:100px; height:100px">
-                        <p><img id="@j" src='@routes.Assets.at("images/button.jpg")' /></p>
+                    <td>
+                        <p><img id="@j" src='@routes.Assets.at("images/button.jpg")' width="auto" height="auto" /></p>
                     </td>
                     }
                     @for(i <- 0 until controller.rows){
@@ -18,18 +18,18 @@
 
                         @for(j <- 0 until controller.columns){
                         @if(controller.cell(j,i).toString() == " "){
-                        <td style="width:100px; height:100px">
-                            <p><img  src='@routes.Assets.at("images/clear.png")' /></p>
+                        <td id = "EMPTYGRID">
+                            <p>&nbsp;</p>
                         </td>
                         }
                         @if(controller.cell(j,i).toString() == "O"){
-                        <td style="width:100px; height:100px">
-                            <p><img  src='@routes.Assets.at("images/redwood.png")' /></p>
+                        <td id = "REDGRID">
+                            <p>&nbsp;</p>
                         </td>
                         }
                         @if(controller.cell(j,i).toString() == "X"){
-                        <td style="width:100px; height:100px">
-                            <p><img  src='@routes.Assets.at("images/blackwood.png")' /></p>
+                        <td id = "BLACKGRID">
+                            <p>&nbsp;</p>
                         </td>
                         }
                         }
@@ -39,10 +39,6 @@
             </div>
             <p>&nbsp;</p>
             <div>
-                <p align="center">
-                    <button type="button" id="BUTTON">Undo</button>
-                    <button type="button" id="BUTTON">Redo</button>
-                </p>
             </div>
         </div>
     </div>
