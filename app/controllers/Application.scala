@@ -10,12 +10,12 @@ import de.htwg.se.connectfour.mvc.model.player.{RandomBotPlayer, RealPlayer}
 import de.htwg.se.connectfour.mvc.model.types.CellType
 import de.htwg.se.connectfour.mvc.view.GamingPlayers
 import play.api.http.websocket.Message
+import play.api.libs.json.{Format, Json}
 import play.api.libs.streams.ActorFlow
 import play.api.mvc._
 
-import scala.concurrent.Future
-import scala.swing.Dialog
-import scala.swing.event.ButtonClicked
+import scala.collection.mutable.ListBuffer
+import scala.swing.Reactor
 
 
 @Singleton
@@ -29,6 +29,7 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
 
   implicit val system = ActorSystem()
   implicit val materializer = ActorMaterializer()
+  implicit val notification: Format[GridController] = Json.format[GridController]
 
 
   localGridController.reactions += {
@@ -84,19 +85,33 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
     def receive = {
       case msg: String =>
         if(msg == "newGame"){
+          println("starting new game")
           startNewGame()
+          sendJson()
         }
         else if(msg.toInt >= 0 && msg.toInt <= 6){
+          println(msg)
+          println(updatingMessage)
           players.applyTurn(msg.toInt)
+          sendJson()
         }
-        out!updatingMessage
-        println(msg)
-        println(updatingMessage)
+        if(updatingMessage.startsWith("Player")){
+          out!updatingMessage
+        }
         if(updatingMessage == "column is filled"){
           updatingMessage = "update"
         }
     }
-
+    def sendJson() ={
+      var listBuffer = new ListBuffer[String]()
+      for (i <- 0 to localGridController.rows-1){
+        for (j <- 0 to localGridController.columns-1){
+          listBuffer += localGridController.cell(j,i).cellType.toString()
+        }
+      }
+      val list = listBuffer.toList
+      out!Json.toJson(list).toString()
+    }
   }
 
   def startNewGame(): Unit = {

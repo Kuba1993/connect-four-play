@@ -5,7 +5,8 @@
 <div>
     <div>
         <div >
-            <p>&nbsp;</p>
+            <li style="font-size: 35px" id="BUTTONNEWGAME" value="button"><a>New Game</a></li>
+
             <div >
                 <table align="center" id="customers">
                     @for(j <- 0 until controller.columns){
@@ -13,32 +14,12 @@
                         <p><img id="@j" src='@routes.Assets.at("images/button.jpg")' width="auto" height="auto" /></p>
                     </td>
                     }
-                    @for(i <- 0 until controller.rows){
-                    <tr>
+                </table>
+                <table align="center" id="grid">
 
-                        @for(j <- 0 until controller.columns){
-                        @if(controller.cell(j,i).toString() == " "){
-                        <td id = "EMPTYGRID">
-                            <p>&nbsp;</p>
-                        </td>
-                        }
-                        @if(controller.cell(j,i).toString() == "O"){
-                        <td id = "REDGRID">
-                            <p>&nbsp;</p>
-                        </td>
-                        }
-                        @if(controller.cell(j,i).toString() == "X"){
-                        <td id = "BLACKGRID">
-                            <p>&nbsp;</p>
-                        </td>
-                        }
-                        }
-                    </tr>
-                    }
                 </table>
             </div>
             <p>&nbsp;</p>
-            <input type="button" value="NEW GAME" id="BUTTONNEWGAME"/>
         </div>
     </div>
 </div>

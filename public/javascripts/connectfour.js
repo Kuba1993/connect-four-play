@@ -14,12 +14,18 @@ $(function(){
                 location.reload();
                 console.log(message.data)
             }
-            else{
+            if(message.data.toString().startsWith("Player")){
                 showDialog(message.data);
+            }
+            else{
+                console.log(message.data)
+                var grid = JSON.parse(message.data);
+                buildGrid(grid);
             }
 
         }
         socket.onerror = function(){
+        console.log(message.data)
         }
         socket.onclose = function(){
         socket.close()
@@ -84,12 +90,26 @@ $(function(){
     }
 });
 
-/*
-function buildButtons(){
+
+function buildGrid(grid){
     var innerhtml = "";
-    for (var i=-1; i < 6; i++){
-        innerhtml += '<td><p><img class="img-responsive" src="/assets/images/button.jpg" onclick="alert("You are clicking on me")"/></p></td>'
+    var k = 0;
+    for (var i=0; i <= 5; i++){
+        innerhtml += '<tr>'
+        for (var j=0; j <= 6; j++){
+            if(grid[j+k] == " "){
+                innerhtml += '<td class = "EMPTYGRID"> <p>&nbsp</p> </td>'
+            }
+            if(grid[j+k] == "O"){
+                innerhtml += '<td class = "REDGRID"> <p>&nbsp</p> </td>'
+            }
+            if(grid[j+k] == "X"){
+                innerhtml += '<td class = "BLACKGRID"> <p>&nbsp</p> </td>'
+            }
         }
-        document.getElementById("playButtons").innerHTML = innerhtml;
+        k += 7;
+        innerhtml += '</tr>'
+        }
+    document.getElementById("grid").innerHTML = innerhtml;
 }
-*/
+
