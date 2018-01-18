@@ -1,47 +1,35 @@
-17:19:43.132 [play-dev-mode-akka.actor.default-dispatcher-4] WARN  application - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
-17:19:43.713 [play-dev-mode-akka.actor.default-dispatcher-4] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
-17:19:43.805 [application-akka.actor.default-dispatcher-6] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-17:19:43.810 [play-dev-mode-akka.actor.default-dispatcher-4] DEBUG p.a.l.concurrent.ActorSystemProvider - Starting application default Akka system: application
-17:19:43.810 [application-akka.actor.default-dispatcher-6] DEBUG akka.event.EventStream - logger log1-Slf4jLogger started
-17:19:43.814 [application-akka.actor.default-dispatcher-6] DEBUG akka.event.EventStream - Default Loggers started
-17:19:43.825 [play-dev-mode-akka.actor.default-dispatcher-4] WARN  application - application.langs is deprecated, use play.i18n.langs instead
-17:19:43.971 [play-dev-mode-akka.actor.default-dispatcher-4] DEBUG d.h.s.c.m.controller.GridController - created empty grids
-17:19:44.045 [play-dev-mode-akka.actor.default-dispatcher-4] INFO  play.api.http.EnabledFilters - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+19:35:28.241 [play-dev-mode-akka.actor.default-dispatcher-12] WARN  application - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead.
+19:35:28.832 [play-dev-mode-akka.actor.default-dispatcher-12] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
+19:35:28.922 [application-akka.actor.default-dispatcher-4] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+19:35:28.926 [play-dev-mode-akka.actor.default-dispatcher-12] DEBUG p.a.l.concurrent.ActorSystemProvider - Starting application default Akka system: application
+19:35:28.927 [application-akka.actor.default-dispatcher-4] DEBUG akka.event.EventStream - logger log1-Slf4jLogger started
+19:35:28.929 [application-akka.actor.default-dispatcher-4] DEBUG akka.event.EventStream - Default Loggers started
+19:35:28.939 [play-dev-mode-akka.actor.default-dispatcher-12] WARN  application - application.langs is deprecated, use play.i18n.langs instead
+19:35:29.089 [play-dev-mode-akka.actor.default-dispatcher-12] DEBUG d.h.s.c.m.controller.GridController - created empty grids
+19:35:29.168 [play-dev-mode-akka.actor.default-dispatcher-12] INFO  play.api.http.EnabledFilters - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-17:19:44.051 [play-dev-mode-akka.actor.default-dispatcher-4] INFO  play.api.Play - Application started (Dev)
-17:19:44.054 [play-dev-mode-akka.actor.default-dispatcher-4] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
-17:19:46.688 [default-akka.actor.default-dispatcher-3] DEBUG d.h.s.c.m.controller.GridController - created empty grids
-17:19:46.772 [play-dev-mode-akka.actor.default-dispatcher-7] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
-17:19:47.514 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:47.909 [default-akka.actor.default-dispatcher-4] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:48.310 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:48.671 [default-akka.actor.default-dispatcher-4] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:49.145 [default-akka.actor.default-dispatcher-4] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:49.566 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:49.936 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:49.937 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - game has finished
-17:19:52.116 [default-akka.actor.default-dispatcher-5] DEBUG d.h.s.c.m.controller.GridController - created empty grids
-17:19:53.632 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 0
-17:19:53.811 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:54.008 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 0
-17:19:54.193 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:54.362 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 0
-17:19:54.546 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
-17:19:54.739 [default-akka.actor.default-dispatcher-2] WARN  d.h.s.c.m.controller.GridController - tried to insert into full column:  0
-17:19:54.963 [default-akka.actor.default-dispatcher-5] WARN  d.h.s.c.m.controller.GridController - tried to insert into full column:  0
-17:19:55.600 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:55.977 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 2
-17:19:56.359 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:56.628 [default-akka.actor.default-dispatcher-5] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 2
-17:19:56.941 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:57.259 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 2
-17:19:57.593 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
-17:19:57.594 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - game has finished
-17:20:03.893 [pool-18-thread-4] INFO  play.core.server.AkkaHttpServer - Stopping server...
-17:20:03.898 [pool-18-thread-4] DEBUG p.a.l.Files$DefaultTemporaryFileCreator - deletePath: deleting = C:\Users\Kuba\AppData\Local\Temp\playtemp2066507004518364149
-17:20:03.900 [pool-18-thread-4] DEBUG p.a.l.concurrent.ActorSystemProvider - Shutdown application default Akka system: application
-17:20:03.908 [application-akka.actor.default-dispatcher-2] DEBUG akka.event.EventStream - shutting down: StandardOutLogger started
+19:35:29.173 [play-dev-mode-akka.actor.default-dispatcher-12] INFO  play.api.Play - Application started (Dev)
+19:35:29.179 [play-dev-mode-akka.actor.default-dispatcher-12] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
+19:35:29.179 [play-dev-mode-akka.actor.default-dispatcher-8] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
+19:35:29.536 [play-dev-mode-akka.actor.default-dispatcher-12] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
+19:35:29.536 [play-dev-mode-akka.actor.default-dispatcher-8] WARN  application - application.conf @ file:/C:/Users/Kuba/IdeaProjects/connect-four-play/target/scala-2.11/classes/application.conf: 8: application.secret is deprecated, use play.http.secret.key instead
+19:35:31.621 [default-akka.actor.default-dispatcher-2] DEBUG d.h.s.c.m.controller.GridController - created empty grids
+19:35:32.503 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 1
+19:35:32.795 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 2
+19:35:33.128 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 3
+19:35:33.756 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
+19:35:34.169 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
+19:35:34.664 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
+19:35:35.216 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 0
+19:35:35.522 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 1
+19:35:36.224 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 1
+19:35:36.800 [default-akka.actor.default-dispatcher-3] INFO  d.h.s.c.m.controller.GridController - added cell of type X at: 0
+19:35:37.201 [default-akka.actor.default-dispatcher-2] INFO  d.h.s.c.m.controller.GridController - added cell of type O at: 1
+19:35:43.608 [pool-7-thread-2] INFO  play.core.server.AkkaHttpServer - Stopping server...
+19:35:43.614 [pool-7-thread-2] DEBUG p.a.l.Files$DefaultTemporaryFileCreator - deletePath: deleting = C:\Users\Kuba\AppData\Local\Temp\playtemp3467882348717320170
+19:35:43.616 [pool-7-thread-2] DEBUG p.a.l.concurrent.ActorSystemProvider - Shutdown application default Akka system: application
+19:35:43.624 [application-akka.actor.default-dispatcher-5] DEBUG akka.event.EventStream - shutting down: StandardOutLogger started
