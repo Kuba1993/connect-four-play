@@ -10,20 +10,15 @@ $(function(){
             message('Socket Status: '+socket.readyState+' (open)');
             }
         socket.onmessage = function(message){
-            if (message.data == "update"){
-                location.reload();
-                console.log(message.data)
-            }
-            if(message.data.toString().startsWith("Player")){
+            if(message.data.toString().startsWith("Player") || message.data.toString().startsWith("draw")){
                 showDialog(message.data);
-            }
+                }
             else{
                 console.log(message.data)
-                var grid = JSON.parse(message.data);
-                buildGrid(grid);
+                grid = JSON.parse(message.data);
+                }
+            buildGrid(grid);
             }
-
-        }
         socket.onerror = function(){
         console.log(message.data)
         }
@@ -33,7 +28,6 @@ $(function(){
         function message(msg){
         			$('#wsLog').append('<p>' + msg +'</p>');
         		}
-
 }
 
 });
@@ -111,5 +105,6 @@ function buildGrid(grid){
         innerhtml += '</tr>'
         }
     document.getElementById("grid").innerHTML = innerhtml;
+    document.getElementById("customers").style.visibility = "visible";
 }
 

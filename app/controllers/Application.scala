@@ -98,9 +98,15 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
         if(updatingMessage.startsWith("Player")){
           out!updatingMessage
         }
-        if(updatingMessage == "column is filled"){
+        if (updatingMessage == "column is filled") {
+          out ! updatingMessage
           updatingMessage = "update"
         }
+        if (updatingMessage == "draw") {
+          out ! updatingMessage
+          updatingMessage = "update"
+        }
+
     }
     def sendJson() ={
       var listBuffer = new ListBuffer[String]()
