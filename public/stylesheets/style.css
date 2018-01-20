@@ -106,11 +106,22 @@ body {
 }
 
 #HTWGLOGO {
+    margin-left: 70px;
     opacity: 0.5;
     max-width:500px;
     max-height:600px;
+    margin-bottom: 50px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
+#HTWGLOGO:hover {
+    border: 70px solid #000;
+    border-radius: 50%;
+}
 
 ul {
     list-style-type: none;
@@ -190,9 +201,7 @@ li.dropdown {
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
-
-#customers td:hover {background-color: #f1f1f1;}
+#customers td:hover {background-color: #d88939;}
 
 
 
