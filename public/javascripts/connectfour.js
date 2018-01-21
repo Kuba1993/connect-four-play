@@ -17,7 +17,7 @@ $(function(){
                 console.log(message.data)
                 grid = JSON.parse(message.data);
                 }
-            buildGrid(grid);
+            app5.gridbuild(grid);
             }
         socket.onerror = function(){
         console.log(message.data)
@@ -48,63 +48,94 @@ $(function(){
     addListeners();
 
     function addListeners(){
+        var zero = document.getElementById("0")
+        var one = document.getElementById("1")
+        var two = document.getElementById("2")
+        var three = document.getElementById("3")
+        var four = document.getElementById("4")
+        var five = document.getElementById("5")
+        var six = document.getElementById("6")
+        var newGame = document.getElementById("BUTTONNEWGAME")
 
-        document.getElementById("0").addEventListener("click", function(){
-            console.log("selected row 0");
-            socket.send(0);
-        })
-        document.getElementById("1").addEventListener("click", function(){
-             console.log("selected row 1");
-             socket.send(1);
-        })
-        document.getElementById("2").addEventListener("click", function(){
-             console.log("selected row 2");
-             socket.send(2);
-        })
-        document.getElementById("3").addEventListener("click", function(){
-             console.log("selected row 3");
-             socket.send(3);
-        })
-        document.getElementById("4").addEventListener("click", function(){
-             console.log("selected row 4");
-             socket.send(4);
-        })
-        document.getElementById("5").addEventListener("click", function(){
-             console.log("selected row 5");
-             socket.send(5);
-        })
-        document.getElementById("6").addEventListener("click", function(){
-             console.log("selected row 6");
-             socket.send(6);
-        })
-        document.getElementById("BUTTONNEWGAME").addEventListener("click", function(){
-            console.log("starting new game");
-            socket.send("newGame")});
-
+        if(zero) {
+            zero.addEventListener("click", function () {
+                console.log("selected row 0");
+                socket.send(0);
+            })
+        }
+        if(one) {
+            document.getElementById("1").addEventListener("click", function () {
+                console.log("selected row 1");
+                socket.send(1);
+            })
+        }
+        if(two) {
+            document.getElementById("2").addEventListener("click", function () {
+                console.log("selected row 2");
+                socket.send(2);
+            })
+        }
+        if(three) {
+            document.getElementById("3").addEventListener("click", function () {
+                console.log("selected row 3");
+                socket.send(3);
+            })
+        }
+        if(four) {
+            document.getElementById("4").addEventListener("click", function () {
+                console.log("selected row 4");
+                socket.send(4);
+            })
+        }
+        if(five) {
+            document.getElementById("5").addEventListener("click", function () {
+                console.log("selected row 5");
+                socket.send(5);
+            })
+        }
+        if(six) {
+            document.getElementById("6").addEventListener("click", function () {
+                console.log("selected row 6");
+                socket.send(6);
+            })
+        }
+        if(newGame) {
+            document.getElementById("BUTTONNEWGAME").addEventListener("click", function () {
+                console.log("starting new game");
+                socket.send("newGame")
+            });
+        }
     }
 });
 
 
-function buildGrid(grid){
-    var innerhtml = "";
-    var k = 0;
-    for (var i=0; i <= 5; i++){
-        innerhtml += '<tr>'
-        for (var j=0; j <= 6; j++){
-            if(grid[j+k] == " "){
-                innerhtml += '<td class = "EMPTYGRID"> <p>&nbsp</p> </td>'
+var app5 = new Vue({
+    el: '#app-5',
+    data: {
+        message: 'Hello Vue.js!'
+    },
+    methods: {
+        gridbuild: function (grid) {
+            var innerhtml = "";
+            var k = 0;
+            for (var i=0; i <= 5; i++){
+                innerhtml += '<tr>'
+                for (var j=0; j <= 6; j++){
+                    if(grid[j+k] == " "){
+                        innerhtml += '<td class = "EMPTYGRID"> <p>&nbsp</p> </td>'
+                    }
+                    if(grid[j+k] == "O"){
+                        innerhtml += '<td class = "REDGRID"> <p>&nbsp</p> </td>'
+                    }
+                    if(grid[j+k] == "X"){
+                        innerhtml += '<td class = "BLACKGRID"> <p>&nbsp</p> </td>'
+                    }
+                }
+                k += 7;
+                innerhtml += '</tr>'
             }
-            if(grid[j+k] == "O"){
-                innerhtml += '<td class = "REDGRID"> <p>&nbsp</p> </td>'
-            }
-            if(grid[j+k] == "X"){
-                innerhtml += '<td class = "BLACKGRID"> <p>&nbsp</p> </td>'
-            }
+            document.getElementById("grid").innerHTML = innerhtml;
+            document.getElementById("customers").style.visibility = "visible";
         }
-        k += 7;
-        innerhtml += '</tr>'
-        }
-    document.getElementById("grid").innerHTML = innerhtml;
-    document.getElementById("customers").style.visibility = "visible";
-}
-
+    }
+}).$mount('#app5')
