@@ -5,19 +5,36 @@
 <div>
     <div>
         <div >
-            <button id="BUTTONNEWGAME" class="gameButton" value="button"><a>New Game</a></button>
-
-            <div >
-                <table align="center" id="customers" style="visibility: hidden;">
-                    @for(j <- 0 until controller.columns){
-                    <td>
-                        <p><img id="@j" src='@routes.Assets.at("images/arrow.png")' width="auto" height="auto" /></p>
-                    </td>
-                    }
-                </table>
-                <table align="center" id="grid">
-
-                </table>
+            <button
+                id="BUTTONNEWGAME"
+                class="gameButton"
+                value="button">
+                    <a>
+                        New Game
+                    </a>
+            </button>
+            <table
+                align="center"
+                id="customers"
+                style="visibility: hidden;">
+                @for(j <- 0 until controller.columns){
+                    <td><p>
+                        <img
+                            id="@j"
+                            src='@routes.Assets.at("images/arrow.png")'
+                            width="auto"
+                            height="auto" />
+                    </p></td>
+                }
+            </table>
+            <table align="center" id="grid"></table>
+            <p style="font-size: 4">&nbsp;</p>
+            <div onclick="window.open('https://www.htwg-konstanz.de')">
+                <img
+                    class="HTWGLOGO"
+                    class="img-responsive"
+                    src="@routes.Assets.at("images/HTWG.jpg")"
+                />
             </div>
             <p>&nbsp;</p>
         </div>
