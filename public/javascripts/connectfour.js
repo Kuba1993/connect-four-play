@@ -17,7 +17,7 @@ $(function(){
                 console.log(message.data)
                 grid = JSON.parse(message.data);
                 }
-            app5.gridbuild(grid);
+            buildGrid.gridbuild(grid);
             }
         socket.onerror = function(){
         console.log(message.data)
@@ -109,8 +109,8 @@ $(function(){
 });
 
 
-var app5 = new Vue({
-    el: '#app-5',
+var buildGrid = new Vue({
+    el: '#buildGrid',
     data: {
         message: 'Hello Vue.js!'
     },
@@ -138,4 +138,4 @@ var app5 = new Vue({
             document.getElementById("customers").style.visibility = "visible";
         }
     }
-}).$mount('#app5')
+}).$mount('#buildGrid')
