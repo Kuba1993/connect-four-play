@@ -112,9 +112,6 @@ $(function(){
 
 var buildGrid = new Vue({
     el: '#buildGrid',
-    data: {
-        message: 'Hello Vue.js!'
-    },
     methods: {
         gridbuild: function (grid) {
             var innerhtml = "";
