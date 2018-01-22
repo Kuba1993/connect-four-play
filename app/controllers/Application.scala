@@ -84,6 +84,7 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
   class WebSocketActor(out: ActorRef) extends Actor {
     def receive = {
       case msg: String =>
+        println("received: "+ msg)
         if(msg == "newGame"){
           println("starting new game")
           startNewGame()
@@ -106,18 +107,27 @@ class Application @Inject()(cc: ControllerComponents) extends AbstractController
           out ! updatingMessage
           updatingMessage = "update"
         }
-
+      println("test")
     }
     def sendJson() ={
-      var listBuffer = new ListBuffer[String]()
-      for (i <- 0 to localGridController.rows-1){
-        for (j <- 0 to localGridController.columns-1){
-          listBuffer += localGridController.cell(j,i).cellType.toString()
-        }
-      }
-      val list = listBuffer.toList
-      out!Json.toJson(list).toString()
+      out!Json.toJson(getList()).toString()
     }
+  }
+
+  def getList(): List[String] ={
+    var listBuffer = new ListBuffer[String]()
+    for (i <- 0 to localGridController.rows-1){
+      for (j <- 0 to localGridController.columns-1){
+        listBuffer += localGridController.cell(j,i).cellType.toString()
+      }
+    }
+    val list = listBuffer.toList
+    list
+  }
+
+  def newGame = Action{
+    localGridController.createEmptyGrid(localGridController.columns, localGridController.rows)
+    Ok(Json.toJson(getList()).toString())
   }
 
   def startNewGame(): Unit = {

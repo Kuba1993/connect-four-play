@@ -1,11 +1,13 @@
 var socket;
+var url = "wss://safe-river-80569.herokuapp.com/socket";
+//var url = "ws://localhost:9000/socket";
 
 $(function(){
 
     connect();
 
     function connect(){
-        socket = new WebSocket("wss://safe-river-80569.herokuapp.com/socket");
+        socket = new WebSocket(url);
         socket.onopen = function(){
             message('Socket Status: '+socket.readyState+' (open)');
         }
@@ -42,6 +44,21 @@ function showDialog(data) {
             window.location.reload();
         }
     });
+}
+
+function start() {
+$.ajax({
+type: "GET",
+url: '/new',
+dataType: "json",
+
+success: function(result) {
+    buildGrid.gridbuild(result);
+    console.log(result)
+}
+});
+
+
 }
 
 
@@ -103,7 +120,7 @@ $(function(){
         if(newGame) {
             document.getElementById("BUTTONNEWGAME").addEventListener("click", function () {
                 console.log("starting new game");
-                socket.send("newGame")
+                start();
             });
         }
     }
@@ -132,8 +149,8 @@ var buildGrid = new Vue({
                 k += 7;
                 innerhtml += '</tr>'
             }
-            document.getElementById("grid").innerHTML = innerhtml;
-            document.getElementById("customers").style.visibility = "visible";
+            $("#grid").html(innerhtml);
+            $("#customers").css('visibility', 'visible');
         }
     }
 }).$mount('#buildGrid')
