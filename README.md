@@ -39,4 +39,7 @@ Dieses Projekt entstand im Zuge unseres Studiums an der [HTWG-Konstanz](https://
 Deployed haben wir über die cloud-Plattform [Heroku](https://heroku.com/) <img src="https://blog.phusion.nl/content/images/2016/07/Heroku.png" alt="" width="50" height="21" />
 
 Wenn sie [hier](https://safe-river-80569.herokuapp.com/) klicken kommen sie zu unserem Spiel.
+<br>
+
+<p><img src="https://www.designtagebuch.de/wp-content/uploads/mediathek//2016/12/htwg_markenzeichen.png" alt="" width="1000" height="600" /></p>
 
