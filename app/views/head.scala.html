@@ -3,7 +3,6 @@
 <html lang="en">
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'" >
             <!-- Bootstrap CSS -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +14,8 @@
 
             <!-- Vuejs -->
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
 
             <!-- Javascript -->
